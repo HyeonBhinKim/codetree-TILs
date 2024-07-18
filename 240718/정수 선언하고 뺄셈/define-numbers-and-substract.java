@@ -3,8 +3,6 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         int a = 97, b = 13;
         int c = a - b;
-        System.out.print(a);
-        System.out.print(" - " + b);
-        System.out.print(" = " + c);
+        System.out.print(a + " - " + b + " = " + c);
     }
 }
