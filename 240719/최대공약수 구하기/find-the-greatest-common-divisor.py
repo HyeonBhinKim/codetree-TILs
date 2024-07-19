@@ -1,13 +1,13 @@
 def gcm(n, m):
+    mini = min(n, m)
+    maax = max(n, m)
     answer = 1
-    ngcm = int(n**0.5)
-    mgcm = int(m**0.5)
-    mini = min(ngcm, mgcm)
-    for i in range(1, mini+1):
-        if n%i == 0:
-            if m%(n//i) == 0:
-                answer = max(answer, n//i)
-            if m%i == 0:
+    minisqrt = int(mini**0.5)
+    for i in range(1, minisqrt+1):
+        if mini%i == 0:
+            if maax%(mini//i) == 0:
+                answer = max(answer, mini//i)
+            if maax%i == 0:
                 answer = max(answer, i)
 
     print(answer)
