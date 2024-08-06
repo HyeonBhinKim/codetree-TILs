@@ -1,9 +1,6 @@
 def perfectnumb(n):
-    if n % 2 and (n%10) != 5:
-        if n % 3 == 0 and n % 9 !=0:
-            return False
-        else:
-            return True
+    if n % 2 and (n%10) != 5 and (n % 3 != 0 or n % 9 ==0):
+        return True
     else:
         return False
 
