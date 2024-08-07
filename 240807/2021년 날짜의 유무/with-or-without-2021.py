@@ -1,7 +1,10 @@
 M, D = map(int, input().split())
 
-if M == 2 and D <= 28:
-    print("Yes")
+if M == 2:
+    if D <= 28:
+        print("Yes")
+    else:
+        print("No")
 elif M <= 7:
     if M % 2:
         if D <= 31:
