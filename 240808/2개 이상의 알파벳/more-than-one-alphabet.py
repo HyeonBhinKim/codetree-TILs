@@ -1,18 +1,17 @@
 def isdifferent(string):
-    diction = {}
+    tmp = ''
     for s in string:
-        if s in diction:
-            diction[s] += 1
+        if tmp:
+            if tmp != s:
+                return True
         else:
-            diction[s] = 1
-    return diction
+            tmp = s
+    return False
 
 
 A = input()
 
-dt = isdifferent(A)
-
-if any(count >= 2 for count in dt.values()):
+if isdifferent(A):
     print("Yes")
 else:
     print("No")
