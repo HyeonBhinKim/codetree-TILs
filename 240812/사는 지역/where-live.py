@@ -1,25 +1,22 @@
-class Person:
-    def __init__(self, name, address, city):
+class Address:
+    def __init__(self, name, address, region):
         self.name = name
         self.address = address
-        self.city = city
-
+        self.region = region
+        
+        
+# 변수 선언 및 입력
 n = int(input())
-people = []
+arr = [tuple(input().split()) for _ in range(n)]
+people = [Address(name, address, region) for name, address, region in arr]
 
-for _ in range(n):
-    data = input().split()
-    name = data[0]
-    address = data[1]
-    city = data[2]
-    person = Person(name, address, city)
-    people.append(person)
+# 사전순으로 이름이 가장 느린 사람 찾기
+target_idx = 0
+for i, person in enumerate(people):
+    if person.name > people[target_idx].name:
+        target_idx = i
 
-# 이름을 기준으로 사전순 정렬
-people.sort(key=lambda x: x.name)
-
-# 가장 느린 사람의 정보 출력
-slowest_person = people[-1]
-print(f"name {slowest_person.name}")
-print(f"addr {slowest_person.address}")
-print(f"city {slowest_person.city}")
+# 결과 출력
+print(f"name {people[target_idx].name}")
+print(f"addr {people[target_idx].address}")
+print(f"city {people[target_idx].region}")
