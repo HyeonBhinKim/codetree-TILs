@@ -10,9 +10,9 @@ elasps_days = 0
 if m1 <= m2:
     for i in range(m1, m2):
         elasps_days += num_of_days[i]
-else:
-    for i in range(m2, m1-1, -1):
-        elasps_days += num_of_days[i]
+# else:
+#     for i in range(m2, m1-1, -1):
+#         elasps_days += num_of_days[i]
 
 elasps_days += d2 - d1
 
