@@ -1,5 +1,5 @@
 N, K = map(int, input().split())
-blocks = [0]*N
+blocks = [0]*(N+1)
 
 for i in range(K):
     A, B = map(int, input().split())
