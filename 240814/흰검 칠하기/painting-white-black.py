@@ -16,7 +16,9 @@ for _ in range(n):
                 if n_lst[idx][0] >= 2 and n_lst[idx][1] >= 2:
                     ans[2] += 1
                     BW_lst[idx] = 'G'
-            if i < x-1:
+            if i == 0:
+                idx += 1
+            elif i < x-1: 
                 idx += 1
     else:
         for i in range(x): 
@@ -27,9 +29,11 @@ for _ in range(n):
                 if n_lst[idx][0] >= 2 and n_lst[idx][1] >= 2:
                     ans[2] += 1
                     BW_lst[idx] = 'G'
-            if i < x-1:
+            if i == 0:
                 idx -= 1
-
+            elif i < x-1:
+                idx -= 1
+    
 for i in BW_lst:
     if i == "B":
         ans[1] += 1
