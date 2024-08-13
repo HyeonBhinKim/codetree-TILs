@@ -10,28 +10,24 @@ for _ in range(n):
     if d =="R":
         for i in range(x): 
             if BW_lst[idx] != 'G':
+                n_lst[idx][0] += 1
                 if BW_lst[idx] != 'B':
-                    n_lst[idx][0] += 1
                     BW_lst[idx] = 'B'
                 if n_lst[idx][0] >= 2 and n_lst[idx][1] >= 2:
                     ans[2] += 1
                     BW_lst[idx] = 'G'
-            if i == 0:
-                idx += 1
-            elif i < x-1: 
+            if i < x-1: 
                 idx += 1
     else:
         for i in range(x): 
             if BW_lst[idx] != 'G':
+                n_lst[idx][1] += 1
                 if BW_lst[idx] != 'W':
-                    n_lst[idx][1] += 1
                     BW_lst[idx] = 'W'
                 if n_lst[idx][0] >= 2 and n_lst[idx][1] >= 2:
                     ans[2] += 1
                     BW_lst[idx] = 'G'
-            if i == 0:
-                idx -= 1
-            elif i < x-1:
+            if i < x-1:
                 idx -= 1
     
 for i in BW_lst:
