@@ -14,7 +14,7 @@ y1_2 += OFFSET
 x2_2 += OFFSET
 y2_2 += OFFSET
 
-# 첫 번째 직사각형의 전체 넓이
+# 첫 번째 직사각형의 넓이를 계산합니다.
 area1 = (x2_1 - x1_1) * (y2_1 - y1_1)
 
 # 두 번째 직사각형과의 겹치는 부분의 좌표 계산
@@ -35,10 +35,10 @@ remaining_area = area1 - overlap_area
 
 # 남아 있는 부분을 덮기 위한 최소 직사각형의 넓이를 계산
 if remaining_area > 0:
-    min_x = x1_1
-    max_x = x2_1
-    min_y = y1_1
-    max_y = y2_1
+    min_x = min(x1_1, x2_1)
+    max_x = max(x1_1, x2_1)
+    min_y = min(y1_1, y2_1)
+    max_y = max(y1_1, y2_1)
 
     # 최종 넓이 계산
     cover_area = (max_x - min_x) * (max_y - min_y)
