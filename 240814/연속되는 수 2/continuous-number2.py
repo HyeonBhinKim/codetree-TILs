@@ -20,6 +20,4 @@ for i in range(N):
     if n_lst[i] < cnt:
         n_lst[i] = cnt
 
-        
-
 print(max(n_lst))
