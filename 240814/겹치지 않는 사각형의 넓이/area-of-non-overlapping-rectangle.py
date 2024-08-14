@@ -5,6 +5,10 @@ ans = 0
 
 for _ in range(3):
     x1, y1, x2, y2 = map(int, input().split())
+    x1 += OFFSET
+    y1 += OFFSET
+    x2 += OFFSET
+    y2 += OFFSET
 
     if _ < 2:
         for i in range(x1, x2):
