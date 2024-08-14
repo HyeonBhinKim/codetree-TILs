@@ -7,12 +7,14 @@ for _ in range(N):
     target = input()
     targets += target
 
-tmp = ''
 cnt = 1
 
 for i in range(N):
     if i == 0 or targets[i] == targets[i-1]:
-        cnt += 1
+        if i:
+            cnt += 1
+        else:
+            pass
     
     else:
         cnt = 1
