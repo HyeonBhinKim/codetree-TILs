@@ -3,10 +3,18 @@ x1_1, y1_1, x2_1, y2_1 = map(int, input().split())
 # 두 번째 직사각형의 좌표를 입력받습니다.
 x1_2, y1_2, x2_2, y2_2 = map(int, input().split())
 
-# 첫 번째 직사각형의 넓이를 계산합니다.
-# 두 번째 직사각형의 범위를 고려하여 남아 있는 부분을 계산합니다.
+# OFFSET을 적용
+OFFSET = 1000
+x1_1 += OFFSET
+y1_1 += OFFSET
+x2_1 += OFFSET
+y2_1 += OFFSET
+x1_2 += OFFSET
+y1_2 += OFFSET
+x2_2 += OFFSET
+y2_2 += OFFSET
 
-# 남아 있는 부분의 좌표를 계산
+# 첫 번째 직사각형의 넓이를 계산합니다.
 remaining_x1 = x1_1
 remaining_y1 = y1_1
 remaining_x2 = x2_1
