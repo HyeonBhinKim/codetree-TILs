@@ -1,5 +1,5 @@
 N, M = map(int, input().split())
-MAX_T = 100001
+MAX_T = 1000001
 
 n_lst = [0 for _ in range(MAX_T)]
 m_lst = [0 for _ in range(MAX_T)]
