@@ -21,28 +21,22 @@ for _ in range(M):
         m_lst[time] = m_lst[time-1] + v    
 
 ans = 0
-tmp = [0, 0]
+leader = 0
 
 for t in range(1, time+1):
     if n_lst[t] > m_lst[t]:
-        if tmp[0] == 1 and tmp[1] == 0:
-            pass
-        else:
-            tmp[0], tmp[1] = 1, 0
+        if leader != 1:
             ans += 1
+        leader = 1
 
     elif n_lst[t] < m_lst[t]:
-        if tmp[0] == 0 and tmp[1] == 1:
-            pass
-        else:
-            tmp[0], tmp[1] = 0, 1
+        if leader != 2:
             ans += 1
+        leader = 2
 
     else:
-        if tmp[0] == 1 and tmp[1] == 1:
-            pass
-        else:
-            tmp[0], tmp[1] = 1, 1
+        if leader != 3:
             ans += 1
+        leader = 3
 
 print(ans)
