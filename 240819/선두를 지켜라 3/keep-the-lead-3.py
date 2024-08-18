@@ -1,5 +1,5 @@
 N, M = map(int, input().split())
-MAX_R = 21
+MAX_R = 1000001
 
 n_lst = [0] * MAX_R
 m_lst = [0] * MAX_R
