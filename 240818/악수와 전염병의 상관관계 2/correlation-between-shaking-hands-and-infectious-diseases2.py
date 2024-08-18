@@ -21,6 +21,10 @@ for i in handshake:
             elif n_lst[i[0]] == 0 and n_lst[i[1]] > 1:
                 n_lst[i[0]] = K + 1
                 n_lst[i[1]] -= 1
+            elif n_lst[i[0]] > 1 and n_lst[i[1]]:
+                n_lst[i[0]] -= 1
+            elif n_lst[i[0]] and n_lst[i[1]] > 1:
+                n_lst[i[1]] -= 1
         
 n_lst = n_lst[1:MAX_N+1]
 
