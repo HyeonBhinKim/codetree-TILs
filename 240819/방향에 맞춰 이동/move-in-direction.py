@@ -8,14 +8,13 @@ for _ in range(N):
     d, t = map(str, input().split())
     t = int(t)
 
-    for i in range(t):
-        if d == "E":
-            x += dx[0]
-        elif d == "S":
-            y += dy[1]
-        elif d == "W":
-            x += dx[2]
-        else:
-            y += dy[3]
+    if d == "E":
+        x += dx[0] * t
+    elif d == "S":
+        y += dy[1] * t
+    elif d == "W":
+        x += dx[2] * t
+    else:
+        y += dy[3] * t
     
 print(x, y)
