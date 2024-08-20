@@ -3,7 +3,7 @@ def in_range(x, y):
 
 n, t = map(int, input().split())
 r, c, d = map(str, input().split())
-x, y = int(r), int(c)
+x, y = int(r)-1, int(c)+1
 
 dx, dy = [1, 0, 0, -1], [0, -1, 1, 0]
 
@@ -27,4 +27,4 @@ while t+1:
 
     t -= 1
 
-print(x, y)
+print(x+1, y+1)
