@@ -3,7 +3,7 @@ def in_range(x, y):
 
 n, t = map(int, input().split())
 r, c, d = map(str, input().split())
-x, y = int(r)-1, int(c)+1
+x, y = int(r)-1, int(c)-1 # 1~n 까지니까 0 ~ n-1까지로
 
 dx, dy = [1, 0, 0, -1], [0, -1, 1, 0]
 
@@ -17,13 +17,12 @@ D = {
 dir_num = D[d]
 
 
-while t+1:
+while t:
     nx, ny = x + dx[dir_num], y + dy[dir_num]
-    if not in_range(nx, ny):  # check whether position is out of grid
-        dir_num = 3 - dir_num # change direction
-    
-    # move
-    x, y = x + dx[dir_num], y + dy[dir_num]
+    if in_range(nx, ny):  # 범위 체크
+        x, y = nx, ny
+    else:
+        dir_num = 3 - dir_num # 방향 전환
 
     t -= 1
 
