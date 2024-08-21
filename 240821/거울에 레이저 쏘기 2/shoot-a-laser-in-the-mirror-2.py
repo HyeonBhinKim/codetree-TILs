@@ -3,14 +3,14 @@ dxs, dys = [1, 0, -1, 0], [0, 1, 0, -1] # 동, 북, 서, 남
 
 # y축 = 행, x축 = 열
 def startpoint(N, K):
-    K -= 1
+    K = K - 1
         # return y, x, d 
-    if K//N == 3:
+    if K//N == 3: # 동쪽 +x
         return (N-1)-K%N, 0, 0 # 동 +x
-    elif K//N == 2:
+    elif K//N == 2: 
         return N-1, K%N, 3 # -y
-    elif K//N:
-        return K%N, N-1, 2 # 서 -x
+    elif K//N == 1: 
+        return K%N, N-1, 2  # 서 -x
     else:
         return 0, (N-1)-K%N, 1 # +y
 
