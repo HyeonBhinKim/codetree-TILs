@@ -35,15 +35,15 @@ def move(move_d,t):
 
 
 # 움직이는 것을 진행합니다.
-for _ in range(n):
-    d, t = tuple(input.split())
+for _ in range(N):
+    d, t = tuple(input().split())
     t = int(t)
     # 각 방향에 맞는 번호를 붙여줍니다.
-    if d = "E":
+    if d == "E":
         move_d = 0
-    elif d = "S":
+    elif d == "W":
         move_d = 1
-    elif d = "N":
+    elif d == "S":
         move_d = 2
     else:
         move_d = 3
