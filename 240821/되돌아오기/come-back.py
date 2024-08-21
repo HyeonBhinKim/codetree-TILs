@@ -39,3 +39,6 @@ for _ in range(N):
     if current_west_east == 0 and current_north_south == 0:
         print(ans)
         break
+    
+    if _ == N-1:
+        print(-1)
