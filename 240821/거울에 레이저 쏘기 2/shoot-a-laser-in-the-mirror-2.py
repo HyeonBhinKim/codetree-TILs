@@ -59,7 +59,7 @@ for i in range(N):
     strs = input()
     strs = strs.replace('\\', '!') # / = / , \ = !
     n_lst[i] = strs
-print(n_lst)
+# print(n_lst)
 
 K = int(input())
 y, x, d = startpoint(N, K)
