@@ -57,7 +57,7 @@ n_lst = [''for _ in range(N)]
 
 for i in range(N):
     strs = input()
-    # strs = strs.replace('\\', '!') # / = / , \ = !
+    strs = strs.replace('\\', '!') # / = / , \ = !
     n_lst[i] = strs
 
 K = int(input())
