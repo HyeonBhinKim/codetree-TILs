@@ -8,17 +8,17 @@ def startpoint(N, K):
     if K//N == 3: # 동쪽 +x
         return (N-1)-K%N, 0, 0 # 동 +x
     elif K//N == 2: 
-        return N-1, K%N, 3 # -y
+        return N-1, (N-1)-K%N, 3 # -y
     elif K//N == 1: 
         return K%N, N-1, 2  # 서 -x
     else:
-        return 0, (N-1)-K%N, 1 # +y
+        return 0, K%N, 1 # +y
 
 def in_range(x, y):
     return 0 <= x < N and 0 <= y < N
 
-    # 동에서 \ 보면 북으로 보고 +y
-    # 서 \ 남 -y
+    # 동에서 +x \ 보면 북으로 보고 +y right
+    # 서 -x \ 남 -y right
     # 남 -y 3 \ 동 +x 0 right
     # 북 +y 1 \ 서 -x 2 right
 
