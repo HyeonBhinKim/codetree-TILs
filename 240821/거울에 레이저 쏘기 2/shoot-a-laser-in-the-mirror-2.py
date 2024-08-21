@@ -1,4 +1,4 @@
-dxs, dys = [1, 0, -1, 0], [0, 1, 0, -1] # 동, 북, 서, 남
+dxs, dys = [1, 0, -1, 0], [0, -1, 0, 1] # 동, 북, 서, 남
 
 # y축 = 행, x축 = 열
 def startpoint(N, K):
@@ -38,8 +38,9 @@ def dxy_left(x, y, d):
 
 
 def reflect(x, y, d):
+    # print('reflect', x, y, d)
     if not in_range(x, y):
-        return 1
+        return 0
     else:
         if n_lst[y][x] == "/": #배열 y축 = 행, x축 = 열
             if d == 0 or d == 2:
