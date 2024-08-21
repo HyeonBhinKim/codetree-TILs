@@ -1,33 +1,35 @@
-N, M = map(int, input().split())
+# 변수 선언 및 입력
+n, m = tuple(map(int, input().split()))
+arr = [
+    [0] * n
+    for _ in range(n)
+]
+
+dxs = [0, 1,  0, -1]
+dys = [1, 0, -1,  0]
+
 
 def in_range(x, y):
-    return 0 <= x < N and 0 <= y < N
+    return 0 <= x and x < n and 0 <= y and y < n
 
-def is_colored(x, y):
-    global N
-    colored = 0
-    for i in range(4):
-        nx, ny = x + dx[i], y + dy[i]
-        if in_range(nx, ny) and n_lst[nx][ny]:
-            colored += 1
+
+def adjacent_cnt(x, y):
+    cnt = 0
+    for dx, dy in zip(dxs, dys):
+        nx, ny = x + dx, y + dy
+        if in_range(nx, ny) and arr[nx][ny] == 1:
+            cnt += 1
     
-    # 편안한 상태는 인접 색칠칸이 3이어야 함
-    if colored == 3:
-        return True
+    return cnt
 
-    return False
-
-dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
-
-
-n_lst = [[0]*N for _ in range(N)]
-
-for _ in range(M):
-    r, c = map(int, input().split())
-    r, c = r-1, c-1
-    n_lst[r][c] = 1
-
-    if is_colored(r, c):
-        print(1)
-    else:
-        print(0)
+for _ in range(m):
+	x, y = tuple(map(int, input().split()))
+	x -= 1
+	y -= 1
+	arr[x][y] = 1
+	
+	# 해당 칸을 탐색합니다.
+	if adjacent_cnt(x, y) == 3:
+		print(1)
+	else:
+		print(0)
