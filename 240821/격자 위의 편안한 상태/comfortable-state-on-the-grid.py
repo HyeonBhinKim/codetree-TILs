@@ -11,7 +11,7 @@ def is_colored(x, y):
         if in_range(nx, ny) and n_lst[nx][ny]:
             colored += 1
     
-    if colored > 2:
+    if colored == 3:
         return True
 
     return False
