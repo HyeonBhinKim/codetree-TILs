@@ -11,6 +11,7 @@ def is_colored(x, y):
         if in_range(nx, ny) and n_lst[nx][ny]:
             colored += 1
     
+    # 편안한 상태는 인접 색칠칸이 3이어야 함
     if colored == 3:
         return True
 
