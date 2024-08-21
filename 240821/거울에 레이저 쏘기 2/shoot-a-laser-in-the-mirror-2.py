@@ -15,7 +15,7 @@ def startpoint(N, K):
         return 0, K%N, 1 # +y
 
 def in_range(x, y):
-    return 0 <= x < N and 0 <= y < N
+    return 0 <= x  and x < N and 0 <= y and y < N
 
     # 동에서 +x \ 보면 북으로 보고 +y right
     # 서 -x \ 남 -y right
@@ -44,10 +44,10 @@ def reflect(x, y, d):
     if not in_range(x, y):
         return 0
     else:
-        if n_lst[y][x] == "!": #배열 y축 = 행, x축 = 열
-            nx, ny, d = dxy_right(x, y, d)
-        else:
+        if n_lst[y][x] == "/": #배열 y축 = 행, x축 = 열
             nx, ny, d = dxy_left(x, y, d)
+        else:
+            nx, ny, d = dxy_right(x, y, d)
         return reflect(nx, ny, d) + 1
 
 
@@ -57,11 +57,10 @@ n_lst = [''for _ in range(N)]
 
 for i in range(N):
     strs = input()
-    strs = strs.replace('\\', '!') # / = / , \ = !
+    # strs = strs.replace('\\', '!') # / = / , \ = !
     n_lst[i] = strs
 
 K = int(input())
-
 y, x, d = startpoint(N, K)
 
 print(reflect(x, y, d))
