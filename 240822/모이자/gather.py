@@ -1,7 +1,7 @@
 n = int(input())
 n_lst = list(map(int, input().split()))
 
-minimum = 10000
+minimum = 10000000
 
 for i in range(n):
     tmp = 0
