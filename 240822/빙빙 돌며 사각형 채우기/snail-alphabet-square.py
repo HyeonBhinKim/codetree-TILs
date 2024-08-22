@@ -25,5 +25,5 @@ for i in range(1, n*m):
     nm_lst[y][x] = alphabet[i%26]
 
 for j in nm_lst:
-    print(' '.join(j))
-    # print(*j)
+    # print(' '.join(j))
+    print(*j)
