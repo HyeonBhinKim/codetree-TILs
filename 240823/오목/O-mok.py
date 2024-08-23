@@ -3,11 +3,11 @@ def who_win(go, i, j, who):
     who_col = [go[i][j],go[i+1][j],go[i+2][j],go[i+3][j],go[i+4][j]]
     who_diag = [go[i][j],go[i+1][j+1],go[i+2][j+2],go[i+3][j+3],go[i+4][j+4]]
     if go[i][j:j+5] == win:
-        return i+2, j+2, who, True
+        return i+3, j+3, who, True
     elif who_col == win:
-        return i+2, j+2, who, True
+        return i+3, j+3, who, True
     elif who_diag == win:
-        return i+2, j+2, who, True
+        return i+3, j+3, who, True
     return 0, 0, 0, False
 
 
