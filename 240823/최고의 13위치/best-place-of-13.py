@@ -9,16 +9,8 @@ for _ in range(N):
 
 ans = 0
 for i in range(N):
-    cnt = 0
     for j in range(N-2):
-        if n_lst[i][j] == 1:
-            cnt += 1
-        if n_lst[i][j+1] == 1:
-            cnt += 1
-        if n_lst[i][j+2] == 1:
-            cnt += 1
-
-        ans = max(ans, cnt)
-        cnt = 0
+        cnt = arr[i][j] + arr[i][j+1] + arr[i][j+2]
+    ans = max(ans, cnt)
 
 print(ans)
