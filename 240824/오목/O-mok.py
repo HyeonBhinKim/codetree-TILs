@@ -7,11 +7,13 @@ def who_win(go, i, j, who):
     if 0 <= j < N-5:
         if go[i][j:j+5] == win:
             return i+1, j+3, who, True
-        elif who_col == win:
+    if 0 <= i < N-5:
+        if who_col == win:
             return i+3, j+1, who, True
-        elif who_diag == win:
+    if 0 <= i < N-5 and 0 <= j < N-5:
+        if who_diag == win:
             return i+3, j+3, who, True
-    if 4 <= j < N:
+    if 4 <= i < N-5 and 4 <= j < N:
         if who_r_diag == win:
             return i+3, j-1, who, True
 
@@ -27,7 +29,7 @@ flag = False
 who = 0
 y, x = 0, 0
 
-for i in range(N-5):
+for i in range(N):
     if flag:
         break
     for j in range(N):
