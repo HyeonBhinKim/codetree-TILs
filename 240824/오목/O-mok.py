@@ -4,14 +4,14 @@ def who_win(go, i, j, who):
     who_diag = [go[i][j],go[i+1][j+1],go[i+2][j+2],go[i+3][j+3],go[i+4][j+4]]
     who_r_diag = [go[i][j],go[i+1][j-1],go[i+2][j-2],go[i+3][j-3],go[i+4][j-4]]
     # 반대 대각선 설정하고, 범위 기준 설정하고 넣으면 될듯
-    if 0 <= i < N-5 and 0 <= j < N-5:
+    if 0 <= j < N-5:
         if go[i][j:j+5] == win:
             return i+1, j+3, who, True
         elif who_col == win:
             return i+3, j+1, who, True
         elif who_diag == win:
             return i+3, j+3, who, True
-    if 4 <= i < N and 4 <= j < N:
+    if 4 <= j < N:
         if who_r_diag == win:
             return i-1, j+3, who, True
 
@@ -27,7 +27,7 @@ flag = False
 who = 0
 y, x = 0, 0
 
-for i in range(N):
+for i in range(N-5):
     if flag:
         break
     for j in range(N):
