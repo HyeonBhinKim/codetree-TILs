@@ -13,7 +13,7 @@ def who_win(go, i, j, who):
             return i+3, j+3, who, True
     if 4 <= j < N:
         if who_r_diag == win:
-            return i-1, j+3, who, True
+            return i+3, j-1, who, True
 
     return 0, 0, 0, False
 
