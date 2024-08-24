@@ -11,7 +11,7 @@ def who_win(go, i, j, who):
             return i+3, j+1, who, True
         elif who_diag == win:
             return i+3, j+3, who, True
-    else:
+    if 4 <= i < N and 4 <= j < N:
         if who_r_diag == win:
             return i-1, j+3, who, True
 
