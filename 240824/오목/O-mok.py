@@ -13,7 +13,7 @@ def who_win(go, i, j, who):
     if 0 <= i < N-5 and 0 <= j < N-5:
         if who_diag == win:
             return i+3, j+3, who, True
-    if 4 <= i < N-5 and 4 <= j < N:
+    if 0 <= i < N-5 and 4 <= j < N:
         if who_r_diag == win:
             return i+3, j-1, who, True
 
