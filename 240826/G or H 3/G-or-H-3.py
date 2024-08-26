@@ -12,7 +12,7 @@ for _ in range(N):
     else:
         n_lst[loc] = 2
 
-for i in range(1, MAX_N-K-1):
+for i in range(1, MAX_N-K+1):
     tmp = sum(n_lst[i:i+K+1])
     ans = max(ans, tmp)
 
