@@ -18,7 +18,7 @@ for _ in range(N):
 
 for i in range(min_loc, max_loc+2):
     for j in range(min_loc, max_loc+2):
-        if ((1 or -1) in n_lst[i:j+1]) and sum(n_lst[i:j+1]) == 0:
+        if sum(n_lst[i:j+1]) == 0 and ((1 or -1) in n_lst[i:j+1]):
             ans = j - i
 
 print(ans)
