@@ -10,7 +10,7 @@ for i in range(N):
 for j in range(N):
     for k in range(j+1, N):
         if k-j > K:
-            break
+            continue
         if n_lst[j] == n_lst[k]:
             bomb = max(bomb, n_lst[j])
 
