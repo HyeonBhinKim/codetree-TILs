@@ -1,32 +1,35 @@
 N = int(input())
+points = [tuple(map(int, input().split())) for _ in range(N)]
 
-n_lst = [tuple(map(int, input().split())) for _ in range(N)]
-
-max_tri = 0
+max_area = 0
 
 for i in range(N):
-    for j in range(i + 1, N):
-        for k in range(j + 1, N):
-            if n_lst[i][1] == n_lst[j][1]:  # i, j 의 y좌표가 같으면 i,j 차이가 밑변
-                if n_lst[i][0] == n_lst[k][0]:  # i, k 의 x좌표가 같으면 k,i 차이가 높이
-                    tri = abs((n_lst[i][0] - n_lst[j][0]) * (n_lst[i][1] - n_lst[k][1]))
-                    max_tri = max(max_tri, tri)
-                elif n_lst[j][0] == n_lst[k][0]:  # j,k x좌표
-                    tri = abs((n_lst[i][0] - n_lst[j][0]) * (n_lst[j][1] - n_lst[k][1]))
-                    max_tri = max(max_tri, tri)
-            elif n_lst[k][1] == n_lst[j][1]:  # k, j 의 y좌표가 같으면 k,j 차이가 밑변
-                if n_lst[i][0] == n_lst[k][0]:  # i, k 의 x좌표가 같으면 k,i 차이가 높이
-                    tri = abs((n_lst[k][0] - n_lst[j][0]) * (n_lst[i][1] - n_lst[k][1]))
-                    max_tri = max(max_tri, tri)
-                elif n_lst[j][0] == n_lst[i][0]:  # j,i x좌표
-                    tri = abs((n_lst[k][0] - n_lst[j][0]) * (n_lst[j][1] - n_lst[i][1]))
-                    max_tri = max(max_tri, tri)
-            elif n_lst[i][1] == n_lst[k][1]:  # i, k 의 y좌표가 같으면 i,k 차이가 밑변
-                if n_lst[i][0] == n_lst[k][0]:  # i, j 의 x좌표가 같으면 k,i 차이가 높이
-                    tri = abs((n_lst[i][0] - n_lst[k][0]) * (n_lst[i][1] - n_lst[j][1]))
-                    max_tri = max(max_tri, tri)
-                elif n_lst[j][0] == n_lst[k][0]:  # j,k x좌표
-                    tri = abs((n_lst[i][0] - n_lst[k][0]) * (n_lst[j][1] - n_lst[k][1]))
-                    max_tri = max(max_tri, tri)
+    for j in range(N):
+        if i == j:
+            continue
+        for k in range(N):
+            if k == i or k == j:
+                continue
+            
+            # i와 j 점을 연결하여 x축에 평행한 변을 만든다.
+            if points[i][1] == points[j][1]:  # y좌표가 같음
+                base_length = abs(points[i][0] - points[j][0])  # 밑변 길이
+                height = abs(points[k][1] - points[i][1])  # 높이
+                area = base_length * height
+                max_area = max(max_area, area)
 
-print(max_tri)
+            # i와 k 점을 연결하여 x축에 평행한 변을 만든다.
+            if points[i][1] == points[k][1]:  # y좌표가 같음
+                base_length = abs(points[i][0] - points[k][0])  # 밑변 길이
+                height = abs(points[j][1] - points[i][1])  # 높이
+                area = base_length * height
+                max_area = max(max_area, area)
+
+            # j와 k 점을 연결하여 x축에 평행한 변을 만든다.
+            if points[j][1] == points[k][1]:  # y좌표가 같음
+                base_length = abs(points[j][0] - points[k][0])  # 밑변 길이
+                height = abs(points[i][1] - points[j][1])  # 높이
+                area = base_length * height
+                max_area = max(max_area, area)
+
+print(max_area)
