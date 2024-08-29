@@ -15,16 +15,16 @@ for i in range(N):
     tmp[i][0] = tmp[i][1]+tmp[i][2]
 
     tmp.sort(key=lambda x :x[0])
+    # print(tmp)
 
     budget = 0
     cnt = 0
 
     for k in range(N):
-        cnt += 1
-        budget += tmp[k][0]
-        if budget > B:
-            cnt -= 1
+        if budget + tmp[k][0] > B:
             break
+        budget += tmp[k][0]
+        cnt += 1
     ans = max(ans, cnt)
 
 print(ans)
