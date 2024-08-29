@@ -14,14 +14,14 @@ for i in range(N):
     tmp[i][1] //= 2
     tmp[i][0] = tmp[i][1]+tmp[i][2]
 
-    tmp.sort()
+    tmp.sort(key=lambda x :x[0])
 
     budget = 0
     cnt = 0
 
     for k in range(N):
         cnt += 1
-        budget += n_lst[k][0]
+        budget += tmp[k][0]
         if budget > B:
             cnt -= 1
             break
