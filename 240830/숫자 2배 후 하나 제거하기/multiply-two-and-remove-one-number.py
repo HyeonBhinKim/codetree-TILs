@@ -1,7 +1,9 @@
+import sys
+
 n = int(input())
 n_lst = list(map(int, input().split()))
 
-ans = 101
+ans = sys.maxsize
 
 for i in range(n):
     n_lst[i] *= 2
