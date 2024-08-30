@@ -8,9 +8,11 @@ n_lst = []
 for _ in range(T):
     alpha, loc = input().split()
     loc = int(loc)
-    if a<=loc<=b and alpha =='S':
+    # if a<=loc<=b and alpha =='S':
+    if alpha =='S':
         s_lst.append(loc)
-    elif a<=loc<=b and alpha =='N':
+    else:
+    # elif a<=loc<=b and alpha =='N':
         n_lst.append(loc)
 
 cnt = 0
