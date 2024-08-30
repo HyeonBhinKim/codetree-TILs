@@ -6,8 +6,8 @@ def interstednumber(n):
             n_lst[int(i)] += 1
         else:
             n_lst[int(i)] = 1
-    if len(n_lst) > 2:
-        return False
+    # if len(n_lst) > 2:
+    #     return False
     cnt1 = 0
     cntm = 0
     for i in n_lst:
