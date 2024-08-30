@@ -3,18 +3,18 @@ h_lst = [int(input())for _ in range(N)]
 
 max_h = max(h_lst)
 
-cnt = 0
-for i in range(1, max_h):
-    tmp = 0
+ans = 0
+for sea_level in range(1, max_h):
+    cnt = 0
     icing = False
-    for j in h_lst:
-        if j > i:
+    for h in h_lst:
+        if h > sea_level:
             if not icing:
                 icing = True
-                tmp += 1
+                cnt += 1
         else:
             icing = False
     
-    cnt = max(cnt, tmp)
+    ans = max(cnt, ans)
 
-print(cnt)
+print(ans)
