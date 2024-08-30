@@ -11,7 +11,7 @@ for i in range(n):
                     cnt += 1
         else:
             for k in range(n_lst[i]-1, n_lst[j], -1):
-                if n_lst[j]-k == k-n_lst[i]:
+                if n_lst[i]-k == k-n_lst[j]:
                     cnt += 1
 
 print(cnt)
