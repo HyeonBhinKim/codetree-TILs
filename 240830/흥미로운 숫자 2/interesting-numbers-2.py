@@ -6,11 +6,11 @@ def interstednumber(n):
             n_lst[int(i)] += 1
         else:
             n_lst[int(i)] = 1
-    # if len(n_lst) > 2:
-    #     return False
+    if len(n_lst) > 2:
+        return False
     cnt1 = 0
     cntm = 0
-    for i in n_lst:
+    for i in n_lst.values():
         if i == 1:
             cnt1 += 1
         else:
@@ -21,11 +21,12 @@ def interstednumber(n):
 
 
 X, Y = map(int, input().split())
-
+# X, Y = 331, 6267
 cnt = 0
 
 for i in range(X, Y+1):
     if interstednumber(i):
+        # print(i)
         cnt += 1
 
 print(cnt)
