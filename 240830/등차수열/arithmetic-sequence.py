@@ -1,8 +1,6 @@
 n = int(input())
 n_lst = list(map(int, input().split()))
 
-n_lst.sort()
-
 cnt = 0
 
 for i in range(n):
