@@ -8,9 +8,7 @@ for i in range(1, 4): # 1~3
     rock[i] = 1
     cnt = 0
     for a, b, c in scam:
-        tmp = rock[a]
-        rock[a] = rock[b]
-        rock[b] = tmp
+        rock[a], rock[b] = rock[b], rock[a]
         if rock[c] == 1:
             cnt += 1
     ans = max(ans, cnt)
