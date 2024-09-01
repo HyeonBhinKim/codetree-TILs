@@ -34,7 +34,7 @@ for i in range(3):
 
 for l in range(11):
     if len(x_lst[l]) != 0 or len(y_lst[l]) !=0:
-        print(-1)
+        print(0)
         break
     if l == 10:
         print(1)
