@@ -27,18 +27,19 @@ for n in range(8):
     for y,x in winning_lst[n]:
         numbers[n_lst[y][x]] += 1
     
-    for each in numbers:
+    for idx, each in enumerate(numbers):
         if each == 2:
             cnt2 += 1
-            each2 = each
+            each2 = idx
         elif each == 1:
             cnt1 += 1
-            each1 = each    
+            each1 = idx
 
     if cnt2 == 1 and cnt1 == 1:
+        # print(each1, each2)    
         if not (each1, each2) in comb:
             ans += 1
-            comb.append([each1, each2])
+            comb.append((each1, each2))
 
 
 print(ans)
