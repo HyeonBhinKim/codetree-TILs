@@ -1,45 +1,85 @@
-n_lst = [(list((map(int, input()))))for _ in range(3)]
+MAX_A = 3
+MAX_X = 9
+
+board = [
+    list(map(int, input()))
+    for _ in range(MAX_A)
+]
 
 ans = 0
 
-#   123.    456.    789.    147.    258.    369.    159.        357.
-#   0:012   1:012   2:012   012:0   012:1   012:2   00:11:22    02:11:20
+# 모든 쌍에 대해 전부 시도해 봅니다.
+for i in range(1, MAX_X + 1):
+    for j in range(i + 1, MAX_X + 1):
+        # i, j 두 명이 팀이 됐을 때 이길 수 있는지를 확인합니다.
+        # win : 두 명이 팀이 됐을 때 이길 수 있다면 true
+        win = False
 
-winning_lst = [
-    [(0,0),(0,1),(0,2)],
-    [(1,0),(1,1),(1,2)],
-    [(2,0),(2,1),(2,2)],
-    [(0,0),(1,0),(2,0)],
-    [(0,1),(1,1),(2,1)],
-    [(0,2),(1,2),(2,2)],
-    [(0,0),(1,1),(2,2)],
-    [(0,2),(1,1),(2,0)]
-    ]
+        # num_i , num_j : 각 줄에 i, j가 나오는 개수
+        num_i = 0
+        num_j = 0
 
-comb = []
+        # 가로로 빙고가 만들어질 때
+        for k in range(MAX_A):
+            num_i = 0
+            num_j = 0
+            for l in range(MAX_A):
+                if board[k][l] == i:
+                    num_i += 1
+                if board[k][l] == j:
+                    num_j += 1
 
-for n in range(8): 
-    numbers = [0]*10
-    cnt2 = 0
-    cnt1 = 0
-    each2 = 0
-    each1 = 0
-    for y,x in winning_lst[n]:
-        numbers[n_lst[y][x]] += 1
-    
-    for idx, each in enumerate(numbers):
-        if each == 2:
-            cnt2 += 1
-            each2 = idx
-        elif each == 1:
-            cnt1 += 1
-            each1 = idx
+            # 3개의 칸에 i, j가 총 3번 나오며
+            # 둘 다 최소 1번 이상 나오면 승리
+            if num_i + num_j == 3 and num_i >= 1 and num_j >= 1:
+                win = True
 
-    if cnt2 == 1 and cnt1 == 1:
-        # print(each1, each2)    
-        if not (each1, each2) in comb:
+        # 세로로 빙고가 만들어질 때
+        for k in range(MAX_A):
+            num_i = 0
+            num_j = 0
+            for l in range(MAX_A):
+                if board[l][k] == i:
+                    num_i += 1
+                if board[l][k] == j:
+                    num_j += 1
+
+            # 3개의 칸에 i, j가 총 3번 나오며
+            # 둘 다 최소 1번 이상 나오면 승리
+            if num_i + num_j == 3 and num_i >= 1 and num_j >= 1:
+                win = True
+
+        # 왼쪽 위에서 오른쪽 아래를 잇는 대각선으로 빙고가 만들어질 때
+        num_i = 0
+        num_j = 0
+        for k in range(MAX_A):
+            if board[k][k] == i:
+                num_i += 1
+            if board[k][k] == j:
+                num_j += 1
+
+        # 3개의 칸에 i, j가 총 3번 나오며
+        # 둘 다 최소 1번 이상 나오면 승리
+        if num_i + num_j == 3 and num_i >= 1 and num_j >= 1:
+            win = True
+
+
+        # 오른쪽 위에서 왼쪽 아래를 잇는 대각선으로 빙고가 만들어질 때
+        num_i = 0
+        num_j = 0
+        for k in range(MAX_A):
+            if board[k][MAX_A - k - 1] == i:
+                num_i += 1
+            if board[k][MAX_A - k - 1] == j:
+                num_j += 1
+
+        # 3개의 칸에 i, j가 총 3번 나오며
+        # 둘 다 최소 1번 이상 나오면 승리
+        if num_i + num_j == 3 and num_i >= 1 and num_j >= 1:
+            win = True
+
+
+        if win:
             ans += 1
-            comb.append((each1, each2))
-
 
 print(ans)
