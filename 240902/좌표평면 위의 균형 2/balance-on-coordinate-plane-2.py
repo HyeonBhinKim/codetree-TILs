@@ -5,9 +5,9 @@ MAX_xy = 101
 points = [tuple(map(int, input().split()))for _ in range(N)]
 
 # sum_diff = 101
-ans = 0
-distance = 101
-n_div = int(N/4)
+ans = N + 1
+# distance = 101
+# n_div = int(N/4)
 
 for i in range(2, MAX_xy, 2): # x
     for j in range(2, MAX_xy, 2): # y
@@ -26,10 +26,13 @@ for i in range(2, MAX_xy, 2): # x
             elif x > i and y < j:
                 fth_stage += 1
         
-        tmp_abs = abs(max(fir_stage, sec_stage, thr_stage, fth_stage) - n_div)
-        if tmp_abs < distance:
-            distance = tmp_abs
-            ans = max(fir_stage, sec_stage, thr_stage, fth_stage)
+        tmp_val = max(fir_stage, sec_stage, thr_stage, fth_stage)
+        ans = min(ans, tmp_val)
+
+        # tmp_abs = abs(max(fir_stage, sec_stage, thr_stage, fth_stage) - n_div)
+        # if tmp_abs < distance:
+        #     distance = tmp_abs
+        #     ans = max(fir_stage, sec_stage, thr_stage, fth_stage)
 
         # tmp_diff = max(fir_stage, sec_stage, thr_stage, fth_stage) - min(fir_stage, sec_stage, thr_stage, fth_stage)
         # if sum_diff > tmp_diff:
