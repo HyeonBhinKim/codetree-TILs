@@ -14,5 +14,6 @@ for i in range(1, N-1):
                 flag = True
                 break
     if ans != i:
-        print(i)
         break
+        
+print(ans+1)
