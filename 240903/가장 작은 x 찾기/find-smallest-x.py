@@ -14,3 +14,4 @@ for i in range(10001):
 
     if flag:
         print(i)
+        break
