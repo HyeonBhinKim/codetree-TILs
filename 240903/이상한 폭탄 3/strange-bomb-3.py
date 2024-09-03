@@ -4,7 +4,7 @@ n_lst = [0]*(N)
 exp_lst = [0]*(1000001)
 
 bomb = 0
-num_exp = 0
+num_exp = 1
 
 for i in range(N):
     n_lst[i] = int(input())
