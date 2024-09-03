@@ -4,7 +4,7 @@ mini = min(n_lst)
 maxi = max(n_lst)
 
 
-ans = 100000
+ans = 1000000000
 for i in range(mini, maxi+1):
     cost = 0
     for elem in n_lst:
