@@ -6,13 +6,13 @@ ans = 0
 for H in range(1, 101):
     cnt = 0
     l_cnt = 0
-    for num in range(N):
+    for num in n_lst:
         if num >= H:
             cnt += 1
         elif l_cnt < L and num + 1 >= H:
             cnt += 1
             l_cnt += 1
-        
+
         if cnt >= H:
             ans = H
             break
