@@ -10,13 +10,14 @@ msg = []
 
 for _ in range(m):
     alpha, num = map(str, input().split())
-    # num = int(num)
-    msg.append((alpha))
+    num = int(num)
+    msg.append((alpha, num))
 
-
-for i in range(p-1, m):
-    read = msg[i]
-    if read in alphabet:
-        alphabet.remove(read)
-
-print(*alphabet)
+if msg[p-1][1]:
+    for i in range(p-1, m):
+        read = msg[i][0]
+        if read in alphabet:
+            alphabet.remove(read)
+    print(*alphabet)
+else:
+    print()
