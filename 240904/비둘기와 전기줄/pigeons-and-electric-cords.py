@@ -1,6 +1,6 @@
 N = int(input())
-pigeons = [0]*(N+1)
-moved = [False]*(N+1)
+pigeons = [0]*(11)
+moved = [False]*(11)
 
 ans = 0
 for _ in range(N):
