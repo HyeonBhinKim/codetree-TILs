@@ -16,8 +16,13 @@ for _ in range(m):
 if msg[p-1][1]:
     for i in range(p-1, m):
         read = msg[i][0]
+        if i != 0 and msg[i-1][1] == msg[i][1]:
+            if msg[i-1][0] in alphabet:
+                alphabet.remove(msg[i-1][0])
+
         if read in alphabet:
             alphabet.remove(read)
+            
     print(*alphabet)
 else:
     print()
