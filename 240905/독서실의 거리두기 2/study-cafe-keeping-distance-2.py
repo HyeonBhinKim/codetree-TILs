@@ -16,7 +16,7 @@ def dist():
 
 
 ans = 0
-for i in range(1,N-1):
+for i in range(N):
     if n_lst[i] != 1:
         n_lst[i] = 1
         ans = max(ans, dist())
