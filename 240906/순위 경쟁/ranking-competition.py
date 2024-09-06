@@ -1,25 +1,20 @@
 def rank(a, b, c): # a 1, ab 2, b 3, bc 4, c 5, ac 6, abc 7
-    return_val = 0
-    maxval = max([a, b, c]) 
-    
-    # 다음과 같이 하면 상태들을 서로 겹치지 않고 정리할 수 있습니다.
-    # 1. A가 명예의 전당에 올라가 있는 경우 상태에 1을 더합니다.
-    if a == maxval:
-        return_val += 1
-
-    # 2. B가 명예의 전당에 올라가 있는 경우 상태에 2를 더합니다.
-    if b == maxval:
-        return_val += 2
-    
-    # 3. C가 명예의 전당에 올라가 있는 경우 상태에 4를 더합니다.
-    if c == maxval:
-        return_val += 4
-    
-    return return_val
+    if a > c and a > b:
+        return 1
+    if a > c and a == b:
+        return 2
+    if b > a and b > c: 
+        return 3
+    if b > a and b == c:
+        return 4
+    if c > b and c > a:
+        return 5
+    if c > b and c == a:
+        return 6
+    if a == b == c:
+        return 7
 
     
-
-
 n = int(input())
 
 A, B, C = 0, 0, 0
