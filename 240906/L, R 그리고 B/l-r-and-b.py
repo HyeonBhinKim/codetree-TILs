@@ -13,7 +13,9 @@ for i in range(10):
         elif arr[i][j] == 'B':
             B = [i, j]
 
-if L[0] > R[0] > B[0] or L[1] > R[1] > B[1] or L[0] < R[0] < B[0] or L[1] > R[1] < B[1]:
+if ((L[0] > R[0] > B[0] or L[0] < R[0] < B[0]) and L[1] == R[1] == B[1]) \
+or ((L[1] > R[1] > B[1] or L[1] < R[1] < B[1]) and L[0] == R[0] == B[0]):
+
     print(abs(L[0]-B[0])+abs(L[1]-B[1])+1)
 else:
     print(abs(L[0]-B[0])+abs(L[1]-B[1])-1)
