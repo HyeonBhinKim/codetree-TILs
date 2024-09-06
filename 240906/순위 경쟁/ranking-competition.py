@@ -14,7 +14,8 @@ def rank(a, b, c): # a 1, ab 2, b 3, bc 4, c 5, ac 6, abc 7
             return 5
         if c == a:
             return 6
-    return 7
+    elif a == b == c:
+        return 7
 
     
 
