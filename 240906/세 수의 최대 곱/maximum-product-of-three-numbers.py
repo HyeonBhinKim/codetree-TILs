@@ -1,14 +1,14 @@
 import sys
-from itertools import combinations
-
 
 n = int(input())
 n_lst = list(map(int, input().split()))
+n_lst.sort()
 
 ans = -sys.maxsize
 
-for ns in combinations(n_lst,3):
-    i, j, k = ns
-    ans = max(ans, i*j*k)
+if ans[-3] > 0 and ans[-2] > 0 and ans[-1] > 0:
+    ans = max(ans, ans[-3]*ans[-2]*ans[-1])
+if ans[-1] > 0 and ans[0] < 0 and ans[1] <0:
+    ans = max(ans, ans[0]*ans[1]*ans[-1])
 
 print(ans)
