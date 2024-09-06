@@ -15,7 +15,7 @@ def rank(a, b, c): # a 1, ab 2, b 3, bc 4, c 5, ac 6, abc 7
         elif c == a:
             return 6
     elif a == b == c:
-        return 
+        return 7
 
     
 n = int(input())
