@@ -6,9 +6,9 @@ n_lst.sort()
 
 ans = -sys.maxsize
 
-if ans[-3] > 0 and ans[-2] > 0 and ans[-1] > 0:
-    ans = max(ans, ans[-3]*ans[-2]*ans[-1])
-if ans[-1] > 0 and ans[0] < 0 and ans[1] <0:
-    ans = max(ans, ans[0]*ans[1]*ans[-1])
+if n_lst[-3] > 0 and n_lst[-2] > 0 and n_lst[-1] > 0:
+    ans = max(ans, n_lst[-3]*n_lst[-2]*n_lst[-1])
+if n_lst[-1] > 0 and n_lst[0] < 0 and n_lst[1] <0:
+    ans = max(ans, n_lst[0]*n_lst[1]*n_lst[-1])
 
 print(ans)
