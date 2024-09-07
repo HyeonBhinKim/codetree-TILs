@@ -1,22 +1,19 @@
-N = int(input())
-n_lst = list(map(int, input().split()))
-sort_lst = sorted(n_lst)
-cnt = 0
+n = int(input())
+blocks = list(map(int, input().split()))
+  
+# 맨 뒤에 있는 숫자들이 
+# 정렬된 상태로 가장 길게 놓여져 있는 것이 좋습니다.
+# 예를 들어 1 3 6 5 2 4 7 라는 수열이 있다면
+# 2 4 7은 이미 정렬되어 있으므로
+# 앞에 있는 1 3 6 5만 각 위치에 잘 옮겨주면 됩니다.
+# 따라서 4가 됩니다.
 
-# 현재 리스트가 정렬된 리스트와 다를 때까지 반복
-while sort_lst != n_lst:
-    # 가장 작은 값의 위치 찾기
-    for i in range(1, len(n_lst)):
-        if n_lst[0] > n_lst[i]:
-            # n_lst의 첫 번째 요소와 현재 인덱스의 요소를 교환
-            n_lst[0], n_lst[i] = n_lst[i], n_lst[0]
-            cnt += 1
-            break
-    else:
-        # 첫 번째 요소가 가장 작을 경우
-        if n_lst and sort_lst and n_lst[0] == sort_lst[0]:
-            n_lst = n_lst[1:]  # 첫 번째 요소를 제거
-            sort_lst = sort_lst[1:]  # 정렬된 리스트의 첫 번째 요소도 제거
-            cnt += 1
+# 즉, 뒤에서부터 보며
+# 정렬되어 있지 않은 순간을 잡아
+# 그 앞에 있는 원소는 전부 옮겨주면 됩니다.
 
-print(cnt)
+idx = n - 2
+while idx >= 0 and blocks[idx] < blocks[idx + 1]:
+    idx -= 1
+
+print(idx + 1)
