@@ -1,28 +1,15 @@
 n, m  = map(int, input().split())
 n_lst = list(map(int, input().split()))
 
-def min_wifi_installations(n, m, people):
-    wifi_count = 0
-    i = 0
+# 사람이 살고 있는 곳이 나오면
+# 와이파이를 해당 위치로부터 오른쪽으로 m만큼 떨어진 곳에 놓은 뒤,
+# 2m만큼 떨어진 곳에서 시작하여 다시 탐색을 진행합니다.
+cnt, i = 0, 0
+while i < n:
+    if n_lst[i] == 1:
+        cnt += 1
+        i += 2 * m + 1
+    else:
+        i += 1
 
-    while i < n:
-        # 현재 위치에서 가장 오른쪽에 설치할 수 있는 위치 찾기
-        while i < n and people[i] == 0:
-            i += 1
-        
-        if i >= n:  # 더 이상 사람을 찾을 수 없는 경우
-            break
-        
-        # 와이파이를 설치할 위치를 결정 (사람이 있는 위치에서 m 거리만큼 오른쪽)
-        wifi_count += 1
-        wifi_position = i + m
-        
-        # 설치한 와이파이로 커버하는 최대한 오른쪽 위치 찾기
-        while i < n and i <= wifi_position + m:
-            i += 1
-
-    return wifi_count
-
-
-result = min_wifi_installations(n, m, n_lst)
-print(result)
+print(cnt)
