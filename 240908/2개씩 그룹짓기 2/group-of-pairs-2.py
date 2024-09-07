@@ -6,7 +6,7 @@ def max_min_difference(n, numbers):
     min_differences = []
     
     for i in range(n):
-        pair_difference = numbers[2 * i + 1] - numbers[2 * i]
+        pair_difference = numbers[n + i] - numbers[i]
         min_differences.append(pair_difference)
     
     # 그룹 내의 차이의 최솟값 중 최대값을 return
