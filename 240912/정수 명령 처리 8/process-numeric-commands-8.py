@@ -126,9 +126,9 @@ for _ in range(N):
             print(lst.size())
         elif tmp[0] == 'empty':
             if lst.empty():
-                print(0)
-            else:
                 print(1)
+            else:
+                print(0)
         elif tmp[0] == 'front':
             print(lst.front())
         else:
