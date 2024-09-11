@@ -125,7 +125,7 @@ for _ in range(N):
         elif tmp[0] == 'size':
             print(lst.size())
         elif tmp[0] == 'empty':
-            if lst.empty:
+            if lst.empty():
                 print(0)
             else:
                 print(1)
